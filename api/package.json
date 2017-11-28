@@ -1,0 +1,17 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Api for user admin project",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Tatenda Chawanzwa <tsc17@hotmail.co.uk>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-jsonschema": "^1.1.6",
+    "express-jwt": "^5.3.0",
+    "mongoose": "^4.13.5"
+  }
+}

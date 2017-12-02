@@ -16,7 +16,7 @@ router.route("/users")
 
 router.route("/users/:id")
   .get(userController.get)
-  .put(v.validate({body: schemas.EditUserSchema}), userController.edit)
-  .delete(v.validate({body: schemas.DeleteUserSchema}), userController.delete);
+  .put(v.validate({body: schemas.EditUserSchema}), userController.update)
+  .delete(userController.remove);
 
 module.exports = router;

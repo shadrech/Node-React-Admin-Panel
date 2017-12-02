@@ -8,6 +8,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/v1", require("./routes"));
 
 app.use(require("./middleware/validationError"));
-require("./models/setup")();
+require("./mongoose/setup")();
 
 app.listen(8000, () => console.log("Listening on port 8000"));

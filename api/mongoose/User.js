@@ -1,20 +1,30 @@
 const mongoose = require("mongoose");
-const bycrypt = require("bcrypt");
-
-module.exports = getUserSchema;
+const bcrypt = require("bcrypt");
+const shortid = require("shortid");
 
 const getUserSchema = () => {
   const userSchema = new mongoose.Schema({
-    firstname: String,
-    lastname: String,
+    _id: {
+      type: String,
+      "default": shortid.generate()
+    },
+    firstname: {
+      type: String,
+      trim: true
+    },
+    lastname: {
+      type: String,
+      trim: true
+    },
     email: {
       type: String,
       min: 6,
-      unique: true
+      unique: true,
+      trim: true
     },
     password: {
       type: String,
-      unique: true
+      trim: true
     }
   });
 
@@ -23,14 +33,17 @@ const getUserSchema = () => {
   }
 
   userSchema.methods.setPassword = function(password) {
-    return bycrypt.hash(password, 10, (err, hash) => {
-      this.password = hash;
-    });
+    const salt = bcrypt.genSaltSync(5);
+    const hash = bcrypt.hashSync(password, salt);
+
+    this.password = hash;
   }
 
   userSchema.methods.isValidPassword = function(str) {
-    return bycrypt.compare(str, this.password, (err, res) => !!res);
+    return bycrypt.compareSync(str, this.password);
   }
 
   return userSchema;
 }
+
+module.exports = getUserSchema;

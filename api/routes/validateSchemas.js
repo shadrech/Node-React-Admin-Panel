@@ -17,13 +17,5 @@ module.exports = {
       lastname: {type: "string"},
       email: {type: "string"}
     }
-  },
-
-  DeleteUserSchema: {
-    type: "object",
-    required: ["id"],
-    properties: {
-      id: {type: "number"}
-    }
   }
 }

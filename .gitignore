@@ -1,3 +1,5 @@
 app/node_modules
+app/coverage
+app/build
 
 api/node_modules

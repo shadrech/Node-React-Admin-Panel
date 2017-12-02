@@ -4,14 +4,21 @@
   "description": "Api for user admin project",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node ./index.js",
+    "start:watch": "./node_modules/.bin/nodemon ./index.js"
   },
   "author": "Tatenda Chawanzwa <tsc17@hotmail.co.uk>",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "express-jsonschema": "^1.1.6",
+    "express-json-validator-middleware": "^1.2.0",
     "express-jwt": "^5.3.0",
     "mongoose": "^4.13.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
   }
 }

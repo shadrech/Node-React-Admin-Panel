@@ -1,34 +1,3 @@
-@import url(./fonts/fonts.css);
-@import url(./components/alert.css);
-body {
-  margin: 0;
-  padding: 0;
-  background: #e4ebee; }
-
-.App {
-  width: 50%;
-  margin-left: 25%;
-  margin-top: 50px;
-  text-align: center; }
-  .App .header {
-    font-family: "resagokrregular" !important;
-    color: #2E6DA4;
-    font-size: 2em; }
-  .App .app-wrapper {
-    position: relative;
-    width: 100%; }
-    .App .app-wrapper .add-btn {
-      position: absolute;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2em;
-      background: white;
-      height: 50px;
-      width: 50px;
-      right: 0;
-      top: -60px; }
-
 .user {
   position: relative;
   display: flex;

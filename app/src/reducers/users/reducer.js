@@ -12,13 +12,13 @@ const INITIAL_STATE = Immutable.Map({
 });
 
 export default function(state = INITIAL_STATE, action) {
-  switch (action.payload) {
+  switch (action.type) {
     case types.FETCH_USERS_ATTEMPT:
       return state.setIn(["loading", "fetch"], true);
     case types.FETCH_USERS_SUCCESS:
       return state.set("users", fromJS(action.payload.users))
         .set("error", null)
-        .set("isLoading", false);
+        .setIn(["loading", "fetch"], false);
     case types.FETCH_USERS_FAIL:
       return state.setIn(["loading", "fetch"], false)
         .set("error", action.payload.error);

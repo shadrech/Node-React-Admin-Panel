@@ -6,7 +6,7 @@ const getUserSchema = () => {
   const userSchema = new mongoose.Schema({
     _id: {
       type: String,
-      "default": shortid.generate()
+      "default": shortid.generate
     },
     firstname: {
       type: String,

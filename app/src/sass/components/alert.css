@@ -1,0 +1,6 @@
+.react-confirm-alert-overlay .react-confirm-alert h1, .react-confirm-alert-overlay .react-confirm-alert h3 {
+  font-family: "resagokrregular" !important; }
+
+.react-confirm-alert-overlay .react-confirm-alert .react-confirm-alert-button-group button {
+  border-radius: 0;
+  height: 40px; }

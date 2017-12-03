@@ -1,29 +1,38 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { withRouter } from "react-router-dom";
 
+import { User } from "./user";
 import { fetchUsers } from "../reducers/users/actions";
 
 class List extends React.Component {
   componentDidMount() {
-    if (!Object.keys(this.props.users).length)
-      this.props.fetchUsers();
+    this.props.fetchUsers();
   }
 
   render() {
+    const users = Object.values(this.props.users);
     return (
-      <div>List users</div>
+      <div className="app-wrapper">
+        <div className="add-btn"><i className="fa fa-plus" aria-hidden="true"></i></div>
+        {!!users.length && 
+          users.map(user => <User key={user._id} user={user} />)
+        }
+      </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  users: state.get("users"),
+  users: state.get("users").toJS(),
   fetching: state.getIn(["loading", "fetch"])
 });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
-  fetchUsers
-}, dispatch);
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators({
+    fetchUsers
+  }, dispatch);
+}
 
-export const UsersList = connect(mapStateToProps, mapDispatchToProps)(List);
+export const UsersList = withRouter(connect(mapStateToProps, mapDispatchToProps)(List));

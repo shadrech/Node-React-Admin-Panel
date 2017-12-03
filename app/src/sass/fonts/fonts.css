@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'neotericbold';
+  src: url("./neotericc-webfont.woff2") format("woff2"), url("./neotericc-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'resagokrregular';
+  src: url("./resagokr-webfont.woff2") format("woff2"), url("./resagokr-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }

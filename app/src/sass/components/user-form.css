@@ -1,0 +1,26 @@
+.user-form {
+  position: relative; }
+  .user-form input {
+    height: 40px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-family: "resagokrregular";
+    font-size: 1em;
+    padding-left: 10px; }
+  .user-form .form-group {
+    display: flex;
+    justify-content: space-between; }
+    .user-form .form-group input {
+      width: calc(50% - 5px); }
+  .user-form .form-submit button {
+    height: 40px;
+    border: none;
+    padding: 0 2em 0 2em;
+    margin: 0 10px 0 10px;
+    font-size: 1.2em;
+    font-family: "resagokrregular";
+    border-radius: 0;
+    color: white;
+    background: #546455; }

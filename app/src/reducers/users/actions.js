@@ -1,5 +1,6 @@
 import * as types from "./types";
 import axios from "axios";
+import { push } from "react-router-redux";
 
 function fetchUsersAttempt() {
   return {
@@ -56,6 +57,42 @@ export function deleteUser(id) {
       .then(() => dispatch(deleteUserSuccess(id)))
       .catch((err) => dispatch(deleteUserFail(err.message)));
   }
+}
+
+function createUserSuccess(user) {
+  return {
+    type: types.CREATE_USER_SUCCESS,
+    payload: { user }
+  };
+}
+
+export function createUser(fields) {
+  return (dispatch) => {
+    axios.post("http://localhost:8000/v1/users", fields)
+      .then(res => {
+        dispatch(push("/"));
+        dispatch(createUserSuccess(res.data.user));
+      })
+      .catch(err => console.error("ERROR CREATING USER", err));
+  }
+}
+
+function updateUserSuccess(id, user) {
+  return {
+    type: types.UPDATE_USER_SUCCESS,
+    payload: { id, user }
+  };
+}
+
+export function updateUser(id, fields) {
+  return dispatch => {
+    axios.put(`http://localhost:8000/v1/users/${id}`, fields)
+      .then(res => {
+        dispatch(push("/"));
+        dispatch(updateUserSuccess(id, res.data.user));
+      })
+      .catch(err => console.error("ERROR UPDATING USER", err));
+  };
 }
 
 function createUserObject(users) {

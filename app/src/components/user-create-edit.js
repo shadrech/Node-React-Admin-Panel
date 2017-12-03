@@ -1,22 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import { withRouter } from "react-router-dom";
 
-import { UserForm } from "./user-form";
+import { UserForm } from "./user-form.jsx";
 
 class CreateEdit extends React.Component {
-  componentDidMount() {
-    this.props.fetchUsers();
-  }
-
   render() {
     const user = this.props.user;
 
     return (
       <div className="app-wrapper">
-        <div className="add-btn"><i className="fa fa-plus" aria-hidden="true"></i></div>
         {user ? <h3>Edit {user.firstname}'s profile</h3> : <h3>Create New User</h3>}
+        <hr />
 
         <UserForm user={user} />
       </div>

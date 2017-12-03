@@ -4,7 +4,12 @@ const userModel = require("../models/User");
 module.exports = {
   create: (req, res, next) => {
     userModel.create(req.body)
-      .then(() => res.json("Successfully created new user"))
+      .then(data => res.json({user: {
+        _id: data._id,
+        firstname: data.firstname,
+        lastname: data.lastname,
+        email: data.email
+      }}))
       .catch(err => res.status(500).json(err));
   },
 

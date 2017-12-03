@@ -10,19 +10,28 @@ body {
   text-align: center; }
   .App .header {
     font-family: "resagokrregular" !important;
-    color: #2E6DA4;
+    color: #154368;
     font-size: 2em; }
   .App .app-wrapper {
     position: relative;
     width: 100%; }
+    .App .app-wrapper h3 {
+      font-family: "resagokrregular";
+      text-align: left;
+      color: #2E6DA4;
+      margin-bottom: 0.5em; }
+    .App .app-wrapper hr {
+      margin-top: 0; }
     .App .app-wrapper .add-btn {
       position: absolute;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 2em;
-      background: white;
+      background: #2E6DA4;
+      color: white;
       height: 50px;
       width: 50px;
       right: 0;
-      top: -60px; }
+      top: -60px;
+      text-decoration: none; }

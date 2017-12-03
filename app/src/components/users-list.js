@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 import { User } from "./user";
 import { fetchUsers } from "../reducers/users/actions";
@@ -15,7 +15,7 @@ class List extends React.Component {
     const users = Object.values(this.props.users);
     return (
       <div className="app-wrapper">
-        <div className="add-btn"><i className="fa fa-plus" aria-hidden="true"></i></div>
+        <Link to="/users/create" className="add-btn"><i className="fa fa-plus" aria-hidden="true"></i></Link>
         {!!users.length && 
           users.map(user => <User key={user._id} user={user} />)
         }

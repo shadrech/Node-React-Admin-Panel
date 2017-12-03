@@ -12,7 +12,7 @@ body {
 
   .header {
     font-family: "resagokrregular" !important;
-    color: #2E6DA4;
+    color: rgb(21, 67, 104);
     font-size: 2em;
   }
 
@@ -20,17 +20,30 @@ body {
     position: relative;
     width: 100%;
 
+    h3 {
+      font-family: "resagokrregular";
+      text-align: left;
+      color: #2E6DA4;
+      margin-bottom: 0.5em;
+    }
+
+    hr {
+      margin-top: 0;
+    }
+
     .add-btn {
       position: absolute;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 2em;
-      background: white;
+      background: #2E6DA4;
+      color: white;
       height: 50px;
       width: 50px;
       right: 0;
       top: -60px;
+      text-decoration: none;
     }
   }
 }

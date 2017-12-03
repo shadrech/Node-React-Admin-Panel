@@ -1,0 +1,36 @@
+.user-form {
+  position: relative;
+
+  input {
+    height: 40px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-family: "resagokrregular";
+    font-size: 1em;
+    padding-left: 10px;
+  }
+
+  .form-group {
+    display: flex;
+    justify-content: space-between;
+    input {
+      width: calc(50% - 5px);
+    }
+  }
+
+  .form-submit {
+    button {
+      height: 40px;
+      border: none;
+      padding: 0 2em 0 2em;
+      margin: 0 10px 0 10px;
+      font-size: 1.2em;
+      font-family: "resagokrregular";
+      border-radius: 0;
+      color: white;
+      background: rgb(84, 100, 85);
+    }
+  }
+}

@@ -3,6 +3,7 @@ import * as types from "./types";
 
 const INITIAL_STATE = Immutable.Map({
   loading: fromJS({
+    create: false,
     fetch: false,
     update: false,
     delete: false
@@ -13,6 +14,11 @@ const INITIAL_STATE = Immutable.Map({
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
+    case types.CREATE_USER_SUCCESS:
+      return state.setIn(["users", action.payload.user._id], action.payload.user)
+        .set("error", null)
+        .setIn(["loading", "create"], false);
+
     case types.FETCH_USERS_ATTEMPT:
       return state.setIn(["loading", "fetch"], true);
     case types.FETCH_USERS_SUCCESS:

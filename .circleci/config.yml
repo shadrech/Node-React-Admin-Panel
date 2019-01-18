@@ -6,8 +6,10 @@ jobs:
       - image: circleci/node:7.10
     steps:
       - checkout
+      - restore_cache:
+          key: npm-cache-{{ .Branch }}-{{ checksum "app/package.json" }} 
       - run: cd app && npm install
       - save_cache:
           key: npm-cache-{{ .Branch }}-{{ checksum "app/package.json" }}
           paths:
-            - node_modules
+            - app/node_modules

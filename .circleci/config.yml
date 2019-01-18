@@ -1,38 +1,13 @@
 version: 2
 
 jobs:
-  one:
+  build:
     docker:
       - image: circleci/node:7.10
     steps:
       - checkout
-      - run: echo "A first build"
-      - run: mkdir -p my_workspace
-      - run: echo "Trying out workspaces" > my_workspace/echo-output
-      - persist_to_workspace:
-          root: my_workspace
+      - run: cd app && npm install
+      - save_cache:
+          key: npm-cache-{{ .Branch }}-{{ checksum "app/package.json" }}
           paths:
-            - echo-output
-  two:
-    docker:
-      - image: circleci/node:7.10
-    steps:
-      - checkout
-      - run: echo "a second build!"
-      - attach_workspace:
-          at: my_workspace
-      - run: |
-          if [[ $(cat my_workspace/echo-output) == "Trying out workspaces" ]]; then
-            echo "It worked!";
-          else
-            echo "Nope!"; exit 1
-          fi
-
-workflows:
-  version: 2
-  one_and_two:
-    jobs:
-      - one
-      - two:
-          requires:
-            - one
+            - node_modules

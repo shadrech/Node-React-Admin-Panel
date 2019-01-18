@@ -8,6 +8,8 @@ jobs:
       - checkout
       - restore_cache:
           key: npm-cache-{{ .Branch }}-{{ checksum "app/package.json" }} 
+          paths:
+            - app/node_modules
       - run: cd app && npm install
       - save_cache:
           key: npm-cache-{{ .Branch }}-{{ checksum "app/package.json" }}
